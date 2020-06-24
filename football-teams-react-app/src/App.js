@@ -13,7 +13,7 @@ const App = () => (
 
     <React.Fragment>
 
-      <Header>Title</Header>
+      <Header>Players</Header>
 
       <Players/>
 
