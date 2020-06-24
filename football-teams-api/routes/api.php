@@ -21,10 +21,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/players', 'API\PlayersController@index');
 
-Route::patch('/players/{player}', 'API\PlayersController@update');
-
 Route::post('/players', 'API\PlayersController@store');
 
+Route::delete('/players', 'API\PlayersController@clear');
+
+Route::patch('/players/{player}', 'API\PlayersController@update');
+
 Route::delete('/players/{player}', 'API\PlayersController@destroy');
+
 
 // TODO: 'players/{player}', 'PlayersController@assign';

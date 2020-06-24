@@ -55,6 +55,13 @@ class Players extends Component {
 
   }
 
+    // allows the player to delete the database to start fresh
+    handleClear(e) {
+      e.preventDefault();
+  
+      this.props.onClear();
+    }
+
 
 
 
@@ -81,6 +88,11 @@ class Players extends Component {
         </form>
 
         { disabled ? <p>Please enter a player name and select a skill level.</p> : null }
+
+
+        <div className="btn-group">
+            <button onClick={ (e) => this.handleClear(e) }>Remove all players</button>
+        </div>
         
         { players.length ?
             <div>
