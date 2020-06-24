@@ -1,8 +1,8 @@
 # Technical Challenge: Football Team Selector
 
-##### [Front End](https://github.com/kierancott/football-team-selector/football-teams-api)
+##### [Front End](https://github.com/kierancott/football-team-selector/tree/master/football-teams-api)
 
-##### [Back End](https://github.com/kierancott/football-team-selector/football-teams-react-app)
+##### [Back End](https://github.com/kierancott/football-team-selector/tree/master/football-teams-react-app)
 
 ### Collaborating: Git Workflow
 
