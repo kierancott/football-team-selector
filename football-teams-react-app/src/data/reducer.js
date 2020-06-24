@@ -1,3 +1,5 @@
+import initial from "./initial";
+
 // spread operator copies players array from initial.js to the players object from the database
 const setPlayers = (state, { players }) => {
   return {
@@ -18,6 +20,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "setPlayers": return setPlayers(state, action);
     case "addPlayer": return addPlayer(state, action);
+    case "resetPlayers": return initial;
     default: return state;
   }
 };

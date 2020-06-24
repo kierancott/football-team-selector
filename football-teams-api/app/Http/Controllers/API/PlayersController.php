@@ -74,6 +74,18 @@ class PlayersController extends Controller
         return new PlayerResource($player);
     }
 
+        /**
+     * Delete all players in the database
+     */
+    public function clear()
+    {
+      // delete everything in the database
+      Player::truncate();
+
+      // use a 204 code as there is no content in the response
+      return response(null, 204);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
