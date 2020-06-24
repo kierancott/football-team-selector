@@ -28,7 +28,8 @@ this.props.onLoad();
             <div>
                 { players.map(player => (
                 <div key={ player.id }>
-                    <Player player={ player }/>
+                  {/* Once '../containers/Player.js' complete we can import container, for now use attributes */}
+                  <p>Name: { player.player_name }, Skill: { player.skill }</p>  
                 </div>
                 ))}
             </div>
