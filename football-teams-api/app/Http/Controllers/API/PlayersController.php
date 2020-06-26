@@ -48,12 +48,22 @@ class PlayersController extends Controller
      */
     public function assign()
     {
-        // Store all players in an array in order of skill
+        // Store all players in an array in descending order of skill
+        $sortedPlayers = Player::all()->sortByDesc('skill')->values()->all();
 
         // Iterate over items in array and update the 'team' property in turn to opposing teams
+        foreach ($sortedPlayers as $key => $player) {
+          if ($key % 2 !== 0) {
+            $player->team = 1;
+            $player->fill(["team"])->save();
+          } else {
+            $player->team = 2;
+            $player->fill(["team"])->save();
+          };
+        };
 
         // return the players array of objects with the updated 'team' property
-        // return Player::all();
+        return Player::all();
     }
 
     /**
@@ -75,7 +85,7 @@ class PlayersController extends Controller
         return new PlayerResource($player);
     }
 
-        /**
+    /**
      * Delete all players in the database
      */
     public function clear()
