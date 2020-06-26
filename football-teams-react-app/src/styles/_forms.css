@@ -1,0 +1,24 @@
+.form {
+    display: flex;
+    justify-content: space-between;
+    margin: 0vw 2vw 0vw 2vw;
+}
+
+.player-error {
+    margin: 3vw 0vw 3vw 0vw;
+    text-align: center;
+}
+
+.skill-radio {
+    margin: 1vw;
+}
+
+.skill-radio__group {
+    margin: 1vw;
+    height: 2.5rem;
+}
+
+.name-input {
+    margin: 1vw;
+    height: 2.5rem;
+}

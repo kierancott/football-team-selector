@@ -1,0 +1,13 @@
+.remove-players {
+    text-align: center;
+}
+
+.assign-teams {
+    text-align: center;
+}
+
+.add-player {
+    width: 10vw;
+    height: 2.5rem;
+    margin: 1vw;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import '../index.css';
+import Card from "react-bootstrap/Card";
+
 
 class Player extends Component {
 constructor(props) {
@@ -17,8 +18,14 @@ render() {
 
     return (
       <React.Fragment>
-        <h6>Player Name: { player.player_name }</h6>
-        <p>Skill level: { player.skill }</p>
+        <Card className="player-card" style={{ width: '25vw' }}>
+          <Card.Body>
+            <Card.Title>{ player.player_name }</Card.Title>
+            <Card.Text>
+              { player.skill }
+            </Card.Text>
+          </Card.Body>
+        </Card>
       </React.Fragment>
     )
   }
