@@ -1,4 +1,5 @@
 import initial from "./initial";
+import { assignTeam } from "./actions/api";
 
 // spread operator copies players array from initial.js to the players object from the database
 const setPlayers = (state, { players }) => {
@@ -16,11 +17,21 @@ const addPlayer = (state, { player }) => {
   };
 };
 
+// replace unassigned players array with $sortedPlayers array using spread operator
+const teamSelect = (state, { players }) => {
+  return {
+    ...state,
+    players: players,
+  };
+};
+
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "setPlayers": return setPlayers(state, action);
     case "addPlayer": return addPlayer(state, action);
     case "resetPlayers": return initial;
+    case "teamSelect": return teamSelect(state, action);
     default: return state;
   }
 };

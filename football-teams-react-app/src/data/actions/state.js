@@ -17,3 +17,10 @@ export const resetPlayers = () => {
     type: "resetPlayers",
   };
 };
+
+export const teamSelect = (players) => {
+  return {
+    type: "teamSelect",
+    players: players,
+  };
+};

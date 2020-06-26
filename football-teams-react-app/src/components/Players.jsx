@@ -1,6 +1,12 @@
 import React, { Component } from "react";
+import {
+  HashRouter as Router,
+  Route,
+  Link,
+} from "react-router-dom";
 
 import Player from "../containers/Player";
+
 
 class Players extends Component {
   constructor (props) {
@@ -55,12 +61,12 @@ class Players extends Component {
 
   }
 
-    // allows the player to delete the database to start fresh
-    handleClear(e) {
-      e.preventDefault();
-  
-      this.props.onClear();
-    }
+  // allows the player to delete the database to start fresh
+  handleClear(e) {
+    e.preventDefault();
+
+    this.props.onClear();
+  }
 
 
 
@@ -75,38 +81,48 @@ class Players extends Component {
     let disabled = true ? (name.length < 1 || this.state.valid === false) : false;
 
     return(
+      <Router>
+        <React.Fragment>
 
-      <React.Fragment>
-        <form className="form" onSubmit={ this.handleSubmit }>
-          <label htmlFor="player_name">Add a player: </label>
-          <input  id="player_name" onChange={ this.handleName } value={ name } autoFocus placeholder="Enter player's name"></input>
-          <p className="skill-label">Skill Level: </p>
-          <div >
-            <input onChange={ (e) => this.handleSkill(e) } type="range" min="1" max="5" class="slider" id="skill"></input>
-          </div>
-          <button type="submit" disabled={ disabled }>Add</button>
-        </form>
+            <form className="form" onSubmit={ this.handleSubmit }>
+              <label htmlFor="player_name">Add a player: </label>
+              <input  id="player_name" onChange={ this.handleName } value={ name } autoFocus placeholder="Enter player's name"></input>
+              <p className="skill-label">Skill Level: </p>
+              <div >
+                <input onChange={ (e) => this.handleSkill(e) } type="range" min="1" max="5" class="slider" id="skill"></input>
+              </div>
+              <button type="submit" disabled={ disabled }>Add</button>
+            </form>
 
-        { disabled ? <p>Please enter a player name and select a skill level.</p> : null }
+            { disabled ? <p>Please enter a player name and select a skill level.</p> : null }
 
 
-        <div className="btn-group">
-            <button onClick={ (e) => this.handleClear(e) }>Remove all players</button>
-        </div>
-        
-        { players.length ?
-            <div>
-                { players.map(player => (
-                <div key={ player.id }>
-                  {/* Once '../containers/Player.js' complete we can import container, for now use attributes */}
-                  <p>Name: { player.player_name }, Skill: { player.skill }</p>  
-                </div>
-                ))}
+            <div className="btn-group">
+                <button onClick={ (e) => this.handleClear(e) }>Remove all players</button>
             </div>
-            :
-            <p>There are no players!</p>
-        }
-      </React.Fragment>
+            
+            { players.length ?
+                <div>
+                    { players.map(player => (
+                    <div key={ player.id }>
+                      {/* Once '../containers/Player.js' complete we can import container, for now use attributes */}
+                      <p>Name: { player.player_name }, Skill: { player.skill }</p>
+                    </div>
+                    ))}
+                </div>
+                :
+                <p>There are no players!</p>
+            }
+
+
+            <div className="btn-group">
+              <Link to="/teams">
+                <button>Assign Teams</button>
+              </Link>
+            </div>
+
+        </React.Fragment>
+      </Router>
     )
   }
 };
