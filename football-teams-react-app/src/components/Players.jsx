@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import {
-  HashRouter as Router,
-  Route,
-  Link,
-} from "react-router-dom";
+import { HashRouter as Router, Link } from "react-router-dom";
 
 import CardDeck from "react-bootstrap/CardDeck";
 import Player from "../components/Player";
@@ -110,9 +106,7 @@ class Players extends Component {
             </form>
           </div>
        
-
             { disabled ? <div class="alert alert-danger player-error" role="alert">Please enter a player name and select a skill level.</div> : null }
-
 
             <div className="remove-players">
                 <button onClick={ (e) => this.handleClear(e) }>Remove all players</button>
@@ -131,7 +125,6 @@ class Players extends Component {
                 :
                 <p>There are no players!</p>
             }
-
 
             <div className="assign-teams">
               <Link to="/teams">
