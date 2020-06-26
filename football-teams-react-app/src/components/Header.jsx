@@ -1,7 +1,7 @@
 import React from "react";
 
 const Header = ({ children, subheader }) => (
-  <header>
+  <header className="pageheader">
     <h1>
       { children }
     </h1>

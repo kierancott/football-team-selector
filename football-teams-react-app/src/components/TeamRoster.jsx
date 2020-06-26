@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { HashRouter as Router, Link } from "react-router-dom";
+
+import Player from "../components/Player";
+import CardDeck from "react-bootstrap/CardDeck";
 
 class TeamRoster extends Component {
 
@@ -24,16 +28,29 @@ class TeamRoster extends Component {
             <React.Fragment>
                 <div>
                     <div>
-                        <h3>Team One</h3>
-                        { firstTeam.map((player, i) => (
-                            <p key={ i }>Name: { player.player_name }, Skill: { player.skill }</p>
-                        ))}
+                        <h3 className="team-title">Team One</h3>
+                        <div className="player-card__grid">
+                            <CardDeck>
+                                { firstTeam.map((player, i) => (
+                                <Player key={ i } player={ player }/>
+                                ))}
+                            </CardDeck>
+                        </div>
                     </div>
                     <div>
-                        <h3>Team Two</h3>
+                        <h3 className="team-title">Team Two</h3>
+                        <div className="player-card__grid">
+                            <CardDeck>
                         { secondTeam.map((player, i) => (
-                            <p key={ i }>Name: { player.player_name }, Skill: { player.skill }</p>
+                            <Player key={ i } player={ player }/>
                         ))}
+                        </CardDeck>
+                        </div>
+                    </div>
+                    <div className="assign-teams">
+                        <Link to="/">
+                            <button>Back</button>
+                        </Link>
                     </div>
                 </div>
 

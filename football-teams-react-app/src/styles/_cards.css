@@ -1,0 +1,9 @@
+.player-card {
+    text-align: center;
+    margin: 1vw;
+    margin-left: 100px;
+}
+
+.player-card__grid {
+    margin: 3vw 6vw 3vw 6vw;
+}
