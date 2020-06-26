@@ -1,6 +1,6 @@
 import axios from "../axios";
 
-import { setPlayers, addPlayer, resetPlayers } from "./state";
+import { setPlayers, addPlayer, resetPlayers, teamSelect } from "./state";
 
 export const getPlayers = () => dispatch => {
   axios.get("/players").then(({ data }) => {
@@ -24,4 +24,10 @@ export const deletePlayers = () => dispatch => {
     dispatch(resetPlayers());
   });
 };
- 
+
+export const assignTeam = () => dispatch => {
+  axios.get("/players/teams").then(({ data }) => {
+    const players = data
+    dispatch(teamSelect(players));
+  });
+};
