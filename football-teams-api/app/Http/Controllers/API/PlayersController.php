@@ -18,7 +18,7 @@ class PlayersController extends Controller
      */
     public function index()
     {
-        // get all the players
+        // get all the players from database
         return Player::all(); 
     }
 
@@ -30,14 +30,13 @@ class PlayersController extends Controller
      */
     public function store(Request $request)
     {
-    // get post request data for player_name and skill
+      // store data from POST request in variable
       $data = $request->only(["player_name", "skill"]);
 
-      // create player with data and store in DB
+      // Player model created from 
       $player = Player::create($data);
 
-      // return the resource
-      // automatically uses the right status code
+      // return the resource and use inbuilt Laravel http code
       return new PlayerResource($player);
     }
 
@@ -49,9 +48,21 @@ class PlayersController extends Controller
      */
     public function assign()
     {
-        // TODO: Logic that assigns team based on respective skill 
+        // Store all players in an array in descending order of skill
+        $sortedPlayers = Player::all()->sortByDesc('skill')->values()->all();
 
-        // return the players array of objects with the new assignments
+        // Iterate over items in array and update the 'team' property in turn to opposing teams
+        foreach ($sortedPlayers as $key => $player) {
+          if ($key % 2 !== 0) {
+            $player->team = 1;
+            $player->fill(["team"])->save();
+          } else {
+            $player->team = 2;
+            $player->fill(["team"])->save();
+          };
+        };
+
+        // return the players array of objects with the updated 'team' property
         return Player::all();
     }
 
@@ -74,15 +85,15 @@ class PlayersController extends Controller
         return new PlayerResource($player);
     }
 
-        /**
+    /**
      * Delete all players in the database
      */
     public function clear()
     {
-      // delete everything in the database
+      // remove all players in database
       Player::truncate();
 
-      // use a 204 code as there is no content in the response
+      // no content returned
       return response(null, 204);
     }
 
@@ -96,7 +107,7 @@ class PlayersController extends Controller
     {
       $player->delete(); 
 
-      // use a 204 code as there is no content in the response
+      // no content returned
       return response(null, 204);
     }
 }
