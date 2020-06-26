@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import Header from "./components/Header";
+import Nav from "./components/Nav";
 import Players from "./containers/Players";
 import TeamRoster from "./containers/TeamRoster";
 
@@ -13,6 +14,7 @@ import TeamRoster from "./containers/TeamRoster";
 const App = () => (
   <Router>
     <React.Fragment>
+      <Nav/>
       <Route exact path="/">
         <Header>Players</Header>
         <Players/>

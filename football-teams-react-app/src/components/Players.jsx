@@ -5,7 +5,8 @@ import {
   Link,
 } from "react-router-dom";
 
-import Player from "../containers/Player";
+import CardDeck from "react-bootstrap/CardDeck";
+import Player from "../components/Player";
 
 
 class Players extends Component {
@@ -68,9 +69,6 @@ class Players extends Component {
     this.props.onClear();
   }
 
-
-
-
   render() {
 
     // destructuring the state and props objects
@@ -83,39 +81,59 @@ class Players extends Component {
     return(
       <Router>
         <React.Fragment>
-
+          <div className="formcontainer">
             <form className="form" onSubmit={ this.handleSubmit }>
-              <label htmlFor="player_name">Add a player: </label>
-              <input  id="player_name" onChange={ this.handleName } value={ name } autoFocus placeholder="Enter player's name"></input>
-              <p className="skill-label">Skill Level: </p>
-              <div >
-                <input onChange={ (e) => this.handleSkill(e) } type="range" min="1" max="5" class="slider" id="skill"></input>
+              <div className="formGroup">
+                <label htmlFor="player_name">Add a player: </label>
+                <input className="name-input" id="player_name" onChange={ this.handleName } value={ name } autoFocus placeholder="Enter player's name"></input>
               </div>
-              <button type="submit" disabled={ disabled }>Add</button>
+              <div className="formGroup skill-radio__group">
+                <label htmlFor="skill" className="skill-label">Skill Level: </label>
+        
+                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="1" id="1" name="skill"></input>
+                <label htmlFor="1">1</label>
+
+                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="2" id="2" name="skill"></input>
+                <label htmlFor="2">2</label>
+
+                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="3" id="3" name="skill"></input>
+                <label htmlFor="3">3</label>
+
+                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="4" id="4" name="skill"></input>
+                <label htmlFor="4">4</label>
+
+                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="5" id="5" name="skill"></input>
+                <label htmlFor="5">5</label>
+              </div>
+              <button type="submit" className="add-player" disabled={ disabled }>Add</button>
+             
             </form>
+          </div>
+       
 
-            { disabled ? <p>Please enter a player name and select a skill level.</p> : null }
+            { disabled ? <div class="alert alert-danger player-error" role="alert">Please enter a player name and select a skill level.</div> : null }
 
 
-            <div className="btn-group">
+            <div className="remove-players">
                 <button onClick={ (e) => this.handleClear(e) }>Remove all players</button>
             </div>
             
             { players.length ?
-                <div>
+            <div className="player-card__grid">
+                <CardDeck>
                     { players.map(player => (
                     <div key={ player.id }>
-                      {/* Once '../containers/Player.js' complete we can import container, for now use attributes */}
-                      <p>Name: { player.player_name }, Skill: { player.skill }</p>
+                      <Player player={ player }/>
                     </div>
                     ))}
-                </div>
+                </CardDeck>
+            </div>
                 :
                 <p>There are no players!</p>
             }
 
 
-            <div className="btn-group">
+            <div className="assign-teams">
               <Link to="/teams">
                 <button>Assign Teams</button>
               </Link>
@@ -128,3 +146,4 @@ class Players extends Component {
 };
 
 export default Players;
+
