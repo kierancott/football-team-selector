@@ -26,7 +26,7 @@ export const deletePlayers = () => dispatch => {
 };
 
 export const assignTeam = () => dispatch => {
-  axios.get("/players/teams").then(({ data }) => {
+  axios.get("/teams").then(({ data }) => {
     const players = data
     dispatch(teamSelect(players));
   });
