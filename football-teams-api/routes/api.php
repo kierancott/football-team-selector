@@ -19,6 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Assign players in database to teams
+Route::get('/teams', 'API\PlayersController@assign'); 
+
 // Shows all players in database
 Route::get('/players', 'API\PlayersController@index');
 
@@ -34,7 +37,6 @@ Route::patch('/players/{player}', 'API\PlayersController@update');
 // Delete a specific players
 Route::delete('/players/{player}', 'API\PlayersController@destroy');
 
-// Assign players in database to teams
-Route::get('/teams', 'API\PlayersController@assign');
+
 
 
