@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Player from "../components/Player";
 import CardDeck from "react-bootstrap/CardDeck";
@@ -29,31 +29,34 @@ class TeamRoster extends Component {
                 <div>
                     <div>
                         <h3 className="team-title">Team One</h3>
-                        <div className="player-card__grid">
-                            <CardDeck>
+                        <div className="teamroster">
+                            <CardDeck style={{ textAlign: "center"}}>
                                 { firstTeam.map((player, i) => (
-                                <Player key={ i } player={ player }/>
+                                    <div className="teamroster__card">
+                                        <Player key={ i } player={ player }/>
+                                    </div>
                                 ))}
                             </CardDeck>
                         </div>
                     </div>
                     <div>
                         <h3 className="team-title">Team Two</h3>
-                        <div className="player-card__grid">
+                        <div className="teamroster">
                             <CardDeck>
-                        { secondTeam.map((player, i) => (
-                            <Player key={ i } player={ player }/>
-                        ))}
-                        </CardDeck>
+                                { secondTeam.map((player, i) => (
+                                    <div className="teamroster__card">
+                                        <Player key={ i } player={ player }/>
+                                    </div>
+                                ))}
+                            </CardDeck>
                         </div>
                     </div>
-                    <div className="assign-teams">
-                        <Link to="/">
-                            <button>Back</button>
-                        </Link>
-                    </div>
+                    <Link to="/">
+                        <div className="back-home">
+                            <button><span>Back</span></button>
+                        </div>
+                    </Link>
                 </div>
-
             </React.Fragment>
         )
     }

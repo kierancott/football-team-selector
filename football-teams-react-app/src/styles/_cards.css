@@ -1,9 +1,51 @@
-.player-card {
+.playercard {
+    font-family: "SourceSansProSemiBold";
+    text-shadow: 2px 2px rgb(255, 255, 255);
     text-align: center;
     margin: 1vw;
     margin-left: 100px;
+    background: rgba(255, 255, 255, 0.6);
 }
 
-.player-card__grid {
-    margin: 3vw 6vw 3vw 6vw;
+.playercard__name {
+    font-family: "SourceSansProSemiBold";
+    text-shadow: 2px 2px rgb(255, 255, 255);
+    background: rgba(157, 157, 157, 0.5);
+    padding: 1vw 0vw;
+    border-radius: 2%;
+}
+
+.playercard__ability {
+    font-family: "SourceSansProSemiBold";
+    text-shadow: 2px 2px rgb(255, 255, 255);
+}
+
+.playercard__grid__title {
+    font-family: "MontserratBold";
+    font-size: 2.5rem;
+    text-shadow: 2px 2px rgb(255, 255, 255);
+    text-align: center;
+    margin: 3vw 10vw 3vw 10vw;
+    padding: 2vw 0vw 2vw 0vw;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.teamroster {
+    margin: 3vw;
+    display: flex;
+    justify-content: center;
+}
+
+.skillbadge {
+    height: 3vw;
+    margin: 1vw 5vw 1vw 5vw;
+    padding: .5vw 0vw 3vw 0vw;
+    color: white;
+    text-shadow: 2px 2px rgb(68, 68, 68);
+    font-family: "SourceSansPro";
+    border-radius: 3%
 }

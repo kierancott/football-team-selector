@@ -1,13 +1,183 @@
-.remove-players {
+.button-links {
     text-align: center;
-}
-
-.assign-teams {
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .add-player {
-    width: 10vw;
-    height: 2.5rem;
+    width: 12vw;
+    height: 2.6rem;
     margin: 1vw;
+    background-color: rgba(79, 235, 47, 0.68);
+    text-shadow: 1px 1px rgb(232, 232, 232);
+}
+
+.add-player:disabled {
+    background-color: rgba(201, 201, 201, 0.515);
+}
+
+.assign-teams > button, .remove-players > button {
+    width: 20vw;
+    text-align: center;
+    margin: 2vw 5vw 2vw 5vw;
+    border-radius: 3%;
+    border: none;
+    font-size: 1.2rem;
+    height: 4vw;
+    font-family: "SourceSansPro";
+}
+
+.remove-players > button {
+    background-color: darkred;
+    color: white;
+    margin-left: 10vw;
+}
+
+.assign-teams > button {
+    background-color: darkgreen;
+    color: white;
+    margin-right: 10vw;
+}
+
+.assign-teams > button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.assign-teams > button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.assign-teams > button:hover span {
+    padding-right: 25px;
+}
+
+.assign-teams > button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.back-home {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+#reassign {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    transform: translateX(3vw);
+}
+
+.back-home > button {
+    width: 20vw;
+    text-align: center;
+    margin: 2vw 5vw 2vw 5vw;
+    border-radius: 3%;
+    border: none;
+    font-size: 1.2rem;
+    height: 4vw;
+    font-family: "SourceSansPro";
+    padding: .5vw 3vw .5vw 3vw;
+    color: white;
+    background-color: rgb(28, 129, 159);
+}
+
+.back-home > button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.back-home > button span:before {
+    content: '\00ab';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -60px;
+    right: 40px;
+    transition: 0.5s;
+}
+
+.back-home > button:hover span {
+    padding-left: 15px;
+}
+
+.back-home > button:hover span:before {
+    opacity: 1;
+    right: 0;
+}
+
+.playercard__buttons {
+    margin-top: 3vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.playercard__buttons_edit {
+    background-color: rgb(44, 141, 174);
+    color: white;
+    text-shadow: 2px 2px rgb(68, 68, 68);
+    width: 7vw;
+    text-align: center;
+    border-radius: 3%;
+    border: none;
+    font-size: .8rem;
+    height: 3vw;
+    font-family: "SourceSansPro";
+    margin-left: 1vw;
+}
+
+.playercard__buttons_delete {
+    background-color: rgba(216, 55, 55, 0.762);
+    color: white;
+    text-shadow: 2px 2px rgb(68, 68, 68);
+    width: 7vw;
+    text-align: center;
+    border-radius: 3%;
+    border: none;
+    font-size: .8rem;
+    height: 3vw;
+    font-family: "SourceSansPro";
+    margin-right: 1vw;
+}
+
+.updateskill {
+    text-align: center;
+}
+
+.updateskill > button {
+    color: white;
+    text-shadow: 2px 2px rgb(68, 68, 68);
+    border-radius: 3%;
+    border: none;
+    font-size: 1.2rem;
+    margin: 3px;
+    height: 3vw;
+    width: 3vw;
+}
+
+.playercard__update {
+    background-color: rgb(44, 141, 174);
+    color: white;
+    text-shadow: 2px 2px rgb(68, 68, 68);
+    width: 8vw;
+    text-align: center;
+    border-radius: 3%;
+    border: none;
+    font-size: .8rem;
+    height: 3vw;
+    font-family: "SourceSansPro";
+    margin-left: 1vw;
+    margin-top: 1vw;
 }
