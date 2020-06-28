@@ -13,11 +13,12 @@ const mapStateToProps = state => {
   };
 };
 
+// onEdit/onDelete goes here
 const mapDispatchToProps = dispatch => {
   return {
     onLoad: () => dispatch(getPlayers()),
     onSubmit: (player_name, skill) => dispatch(postPlayer(player_name, skill)),
-    onClear: () => dispatch(deletePlayers()),
+    onClear: () => dispatch(deletePlayers()), 
   };
 };
 
