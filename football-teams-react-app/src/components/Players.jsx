@@ -34,6 +34,8 @@ class Players extends Component {
 
   handleSkill(e) {
 
+    e.preventDefault();
+
     this.setState({
       skill: e.target.value,
       valid: true,
@@ -88,27 +90,18 @@ class Players extends Component {
               <div className="formGroup skillselect__group">
                 <label htmlFor="skill" className="skill__label">Skill Level: </label>
         
-                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="1"  name="skill"></input>
-                <label className="skillselect__label" htmlFor="1" id="skillone">1</label>
-
-                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="2" name="skill"></input>
-                <label className="skillselect__label" htmlFor="2" id="skilltwo">2</label>
-
-                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="3" name="skill"></input>
-                <label className="skillselect__label" htmlFor="3" id="skillthree">3</label>
-
-                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="4" name="skill"></input>
-                <label className="skillselect__label" htmlFor="4" id="skillfour">4</label>
-
-                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="5" id="skillfive" name="skill"></input>
-                <label className="skillselect__label" htmlFor="5" id="skillfive">5</label>
+                <button onClick={ (e) => this.handleSkill(e) } value="1" style={{ background: "darkred" }}>1</button>
+                <button onClick={ (e) => this.handleSkill(e) } value="2" style={{ background: "darkorange" }}>2</button>
+                <button onClick={ (e) => this.handleSkill(e) } value="3" style={{ background: "orange" }}>3</button>
+                <button onClick={ (e) => this.handleSkill(e) } value="4" style={{ background: "lightgreen" }}>4</button>
+                <button onClick={ (e) => this.handleSkill(e) } value="5" style={{ background: "green" }}>5</button>
               </div>
               <button type="submit" className="add-player" disabled={ disabled }>Add</button>
             </form>
           </div>
        
           { disabled ? <div class="player-error">Please enter a player name and select a skill level.</div> : null }
-
+ 
           <h4 className="playercard__grid__title">Players:</h4>
 
           

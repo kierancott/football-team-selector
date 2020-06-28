@@ -1,7 +1,7 @@
 .footercontainer {
     font-family: "MontserratLight";
     background-color: rgb(28, 129, 159);
-    text-shadow: 3px 3px rgb(68, 68, 68);
+    text-shadow: 2px 2px rgb(68, 68, 68);
     color: white;
     display: flex;
     justify-content: space-between;
