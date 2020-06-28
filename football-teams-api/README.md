@@ -3,7 +3,9 @@
 
 ### Getting Started:
 
-The Virtual Machine is already configured from ScotchBox, and the Vagrant Box set up to use Laravel's Homestead. To get started:
+The API is hosted [live on Heroku here](https://tranquil-beyond-86261.herokuapp.com/).
+
+For local development, the Virtual Machine is already configured from ScotchBox, and the Vagrant Box set up to use Laravel's Homestead. To get started:
 
 1. Clone this repo and `cd` into folder
 2. In your new directory, run `composer install`
@@ -25,11 +27,120 @@ Visit `http://homestead.test` on Mac or `http://localhost:8000` on Windows:
 
 # Team Selector API
 
-// TODO: Routes and Instructions:
+All requests should:
 
-`GET /players` - `PlayerController@index`
-`POST /players` - `PlayerController@store`
-`GET /players/teams` - `PlayerController@assign`
+- Use the basename `https://tranquil-beyond-86261.herokuapp.com/api/`
+- Be sent using JSON and with the `Accept: application/json` header.
+
+End point(s):
+
+- `/api/players`
+- `/api/teams`
+
+### Players - `/api/players`
+
+#### `GET /api/players`
+
+Returns players as JSON object:
+
+```
+{
+    [
+        {
+            "id": "1",
+            "name": "Ronaldo",
+            "skill": "4",
+            team: null
+        },
+        {
+            "id": "2",
+            "name": "Anatoly Ivanishin"
+            "skill": "2",
+            team: null
+        },
+        {
+            "id": "3",
+            "name": "Ivan Vagner"
+            "skill": "1",
+            team: null
+        },
+        {
+            "id": "4",
+            "name": "James Kovinsky"
+            "skill": "3",
+            team: null
+        },
+    ]
+}
+```
+
+#### `POST /api/players`
+
+Add a player to the database as JSON object:
+
+```
+{
+    {
+        "name": "Messi",
+        "skill": "5"
+    },
+}
+```
+
+#### `PATCH /api/players/:id` where `:id` represents a player ID
+
+Add a player to the database as JSON object:
+
+```
+{
+    {
+        "name": "Lionel Messi",
+        "skill": "4"
+    },
+}
+```
+
+#### `DELETE /api/players/:id` where `:id` represents a player ID
+
+- Deletes the corresponding player. No body required.
+
+### Teams - `/api/teams`
+
+#### `GET /api/teams`
+
+Returns players as JSON object with teams assigned:
+
+```
+{
+    [
+        {
+            "id": "1",
+            "name": "Ronaldo",
+            "skill": "4",
+            team: 1
+        },
+        {
+            "id": "2",
+            "name": "Anatoly Ivanishin"
+            "skill": "2",
+            team: 2
+        },
+        {
+            "id": "3",
+            "name": "Ivan Vagner"
+            "skill": "1",
+            team: 2
+        },
+        {
+            "id": "4",
+            "name": "James Kovinsky"
+            "skill": "3",
+            team: 1
+        },
+    ]
+}
+```
+
 
 ---
 
