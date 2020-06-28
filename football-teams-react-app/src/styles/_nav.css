@@ -1,7 +1,8 @@
 .navbar {
-    font-family: "Montserrat";
-    font-size: 1.4rem;
-    background-color: darkred;
+    font-family: "MontserratBold";
+    font-size: 2rem;
+    background-color: rgb(28, 129, 159);
+    text-shadow: 3px 3px rgb(68, 68, 68);
     color: white;
 }
 

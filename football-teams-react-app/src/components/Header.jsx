@@ -1,12 +1,12 @@
 import React from "react";
 
 const Header = ({ children, subheader }) => (
-  <header className="pageheader">
-    <h1>
+  <header className="headercontainer">
+    <h1 className="headercontainer__main">
       { children }
     </h1>
 
-    <h5>{ subheader }</h5>
+    <h5 className="headercontainer__subheader">{ subheader }</h5>
   </header>
 );
 

@@ -77,44 +77,44 @@ class Players extends Component {
     return(
       <Router>
         <React.Fragment>
+          
           <div className="formcontainer">
+          <h5 className="formheader">Add a Player:</h5>
             <form className="form" onSubmit={ this.handleSubmit }>
               <div className="formGroup">
-                <label htmlFor="player_name">Add a player: </label>
-                <input className="name-input" id="player_name" onChange={ this.handleName } value={ name } autoFocus placeholder="Enter player's name"></input>
+                <label htmlFor="player_name">Name: </label>
+                <input className="name-input" id="player_name" onChange={ this.handleName } value={ name } autoFocus placeholder="Name..."></input>
               </div>
-              <div className="formGroup skill-radio__group">
-                <label htmlFor="skill" className="skill-label">Skill Level: </label>
+              <div className="formGroup skillselect__group">
+                <label htmlFor="skill" className="skill__label">Skill Level: </label>
         
-                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="1" id="1" name="skill"></input>
-                <label htmlFor="1">1</label>
+                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="1"  name="skill"></input>
+                <label className="skillselect__label" htmlFor="1" id="skillone">1</label>
 
-                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="2" id="2" name="skill"></input>
-                <label htmlFor="2">2</label>
+                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="2" name="skill"></input>
+                <label className="skillselect__label" htmlFor="2" id="skilltwo">2</label>
 
-                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="3" id="3" name="skill"></input>
-                <label htmlFor="3">3</label>
+                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="3" name="skill"></input>
+                <label className="skillselect__label" htmlFor="3" id="skillthree">3</label>
 
-                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="4" id="4" name="skill"></input>
-                <label htmlFor="4">4</label>
+                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="4" name="skill"></input>
+                <label className="skillselect__label" htmlFor="4" id="skillfour">4</label>
 
-                <input onChange={ (e) => this.handleSkill(e) } className="skill-radio" type="radio" value="5" id="5" name="skill"></input>
-                <label htmlFor="5">5</label>
+                <input onChange={ (e) => this.handleSkill(e) } className="skillselect" type="radio" value="5" id="skillfive" name="skill"></input>
+                <label className="skillselect__label" htmlFor="5" id="skillfive">5</label>
               </div>
               <button type="submit" className="add-player" disabled={ disabled }>Add</button>
-             
             </form>
           </div>
        
-            { disabled ? <div class="alert alert-danger player-error" role="alert">Please enter a player name and select a skill level.</div> : null }
+          { disabled ? <div class="player-error">Please enter a player name and select a skill level.</div> : null }
 
-            <div className="remove-players">
-                <button onClick={ (e) => this.handleClear(e) }>Remove all players</button>
-            </div>
-            
-            { players.length ?
-            <div className="player-card__grid">
-                <CardDeck>
+          <h4 className="playercard__grid__title">Players:</h4>
+
+          
+          { players.length ?
+            <div className="playercard__grid">
+                <CardDeck style={{ textAlign: "center", marginLeft: "8vw"}}>
                     { players.map(player => (
                     <div key={ player.id }>
                       <Player player={ player }/>
@@ -122,16 +122,20 @@ class Players extends Component {
                     ))} 
                 </CardDeck>
             </div>
-                :
-                <p>There are no players!</p>
-            }
+              :
+            <div className="player-error">There are no players!</div>
+          }
 
-            <div className="assign-teams">
-              <Link to="/teams">
-                <button>Assign Teams</button>
-              </Link>
+          <div className="button-links">
+            <div className="remove-players">
+              <button onClick={ (e) => this.handleClear(e) }>Remove all players</button>
             </div>
-
+            <Link to="/teams">
+              <div className="assign-teams">
+                <button><span>Assign Teams</span></button>
+              </div>
+            </Link>
+          </div>
         </React.Fragment>
       </Router>
     )
@@ -139,4 +143,3 @@ class Players extends Component {
 };
 
 export default Players;
-

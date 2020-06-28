@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import Form from "react-bootstrap/Form";
 
 
@@ -71,11 +68,15 @@ class Player extends Component {
   render() {
 
     const { player } = this.props;
-    const { changeable, name } = this.state; 
+    const { changeable, name } = this.state;
+
+    let skillBadge = player.skill === 1 ? "Very Poor" : player.skill === 2 ? "Poor" : player.skill === 3 ? "Average" : player.skill === 4 ? "Good" : "Excellent";
+
+    let skillColour = player.skill === 1 ? "darkred" : player.skill === 2 ? "darkorange" : player.skill === 3 ? "orange" : player.skill === 4 ? "lightgreen" : "green";
 
     return (
       <React.Fragment>
-        <Card className="player-card" style={{ width: '25vw' }}>
+        <Card className="playercard" style={{ width: '25vw', background: " rgba(255, 255, 255, 0.5)" }}>
           <Card.Body>
             { changeable ? 
               <Form onSubmit={ this.handleSubmit }>
@@ -83,27 +84,28 @@ class Player extends Component {
                   <Form.Label>Name:</Form.Label>
                   <Form.Control onChange={ this.handleName }type="text" placeholder={ name }/>
                 </Form.Group>
-                <Form.Group controlId="updateSkill">
-                  <Form.Label>Skill:</Form.Label>
-                  <ButtonToolbar aria-label="Toolbar with button groups">
-                    <ButtonGroup className="mr-2" aria-label="First group">
-                      <Button onClick={ (e) => this.handleSkill(e) } value="1">1</Button>
-                      <Button onClick={ (e) => this.handleSkill(e) } value="2">2</Button>
-                      <Button onClick={ (e) => this.handleSkill(e) } value="3">3</Button>
-                      <Button onClick={ (e) => this.handleSkill(e) } value="4">4</Button>
-                      <Button onClick={ (e) => this.handleSkill(e) } value="5">5</Button>
-                    </ButtonGroup>
-                  </ButtonToolbar>
+                <Form.Group controlId="updateSkill" className="updateskill">
+                  <p>Skill:</p>
+                    <button onClick={ (e) => this.handleSkill(e) } value="1" style={{ background: "darkred" }}>1</button>
+                    <button onClick={ (e) => this.handleSkill(e) } value="2" style={{ background: "darkorange" }}>2</button>
+                    <button onClick={ (e) => this.handleSkill(e) } value="3" style={{ background: "orange" }}>3</button>
+                    <button onClick={ (e) => this.handleSkill(e) } value="4" style={{ background: "lightgreen" }}>4</button>
+                    <button onClick={ (e) => this.handleSkill(e) } value="5" style={{ background: "green" }}>5</button>
                 </Form.Group>
-                <Button type="submit">Update</Button>
+                <button className="playercard__update" type="submit">Update</button>
               </Form>
-            : <Card.Title>{ player.player_name }</Card.Title> }
-            <Card.Text>
-              { player.skill }
-            </Card.Text>
-            <Button onClick={ this.handleEdit }>Edit</Button>
-            <Button onClick={ this.handleDelete }>Delete</Button>
-          </Card.Body>
+            : <><Card.Title className="playercard__name" style={{ fontSize: "2.2rem"}}>{ player.player_name }</Card.Title> 
+            <div className="playercard__skill">
+              <p className="playercard__ability">Skill Level:</p>
+              <div className="skillbadge" style={{ backgroundColor: skillColour }}>
+                { skillBadge }
+              </div>
+            </div>
+            <div className="playercard__buttons">
+              <button className="playercard__buttons_edit" onClick={ this.handleEdit }>Edit</button>
+              <button className="playercard__buttons_delete" onClick={ this.handleDelete }>Delete</button>
+            </div></>}
+          </Card.Body> 
         </Card>
       </React.Fragment>
     )

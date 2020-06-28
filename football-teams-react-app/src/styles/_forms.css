@@ -4,21 +4,35 @@
     margin: 0vw 2vw 0vw 2vw;
 }
 
-.player-error {
-    margin: 3vw 0vw 3vw 0vw;
+.formcontainer {
+    margin: 3vw 1vw 3vw 1vw;
+    padding: 2vw 0vw 2vw 0vw;
+    background: rgba(255, 255, 255, 0.5);
+    font-family: "SourceSansProSemiBold";
+    font-size: 1.5rem;
+    text-shadow: 2px 2px rgb(226, 226, 226);
+}
+
+.formheader {
     text-align: center;
+    font-size: 1.6rem;
+    font-family: "MontserratBold";
+    text-shadow: 2px 2px rgb(255, 255, 255);
 }
 
-.skill-radio {
-    margin: 1vw;
+.player-error {
+    margin: 3vw 30vw 3vw 30vw;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 1vw 0vw 1vw 0vw;
+    color: rgb(167, 15, 15);
+    text-shadow: 1px 1px rgb(232, 232, 232);
+    font-family: "SourceSansProSemiBold"
 }
 
-.skill-radio__group {
-    margin: 1vw;
-    height: 2.5rem;
-}
 
 .name-input {
     margin: 1vw;
     height: 2.5rem;
+    padding: 1vw;
 }
