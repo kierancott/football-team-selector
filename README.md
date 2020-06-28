@@ -2,7 +2,11 @@
 
 ## [Front End README](https://github.com/kierancott/football-team-selector/tree/master/football-teams-react-app)
 
+Live on GitHub Pages: https://kierancott.github.io/team-selector--react/
+
 ## [Back End README](https://github.com/kierancott/football-team-selector/tree/master/football-teams-api)
+
+Live on Heroku: https://tranquil-beyond-86261.herokuapp.com/
 
 ### Collaborating: Git Workflow
 
