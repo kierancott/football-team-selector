@@ -6,6 +6,7 @@ import { patchPlayer, deletePlayer, getPlayers } from "../data/actions/api";
 
 const mapDispatchToProps = (dispatch, { player }) => {
   return {
+    // dispatch actions to API
     onLoad: () => dispatch(getPlayers()),
     onUpdate: (player_name, skill) => dispatch(patchPlayer(player.id, player_name, skill)),
     onDelete: () => dispatch(deletePlayer(player.id)),
