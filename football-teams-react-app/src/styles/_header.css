@@ -1,6 +1,9 @@
-.pageheader {
+.headercontainer {
     font-family: "MontserratBold";
     font-size: 1.4rem;
+    text-shadow: 2px 2px rgb(255, 255, 255);
     text-align: center;
-    margin: 3vw 0vw 3vw 0vw;
+    margin: 3vw 1vw 3vw 1vw;
+    padding: 2vw 0vw 2vw 0vw;
+    background: rgba(255, 255, 255, 0.5);
 }

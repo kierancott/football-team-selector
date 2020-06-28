@@ -1,0 +1,34 @@
+.footercontainer {
+    font-family: "MontserratLight";
+    background-color: rgb(28, 129, 159);
+    text-shadow: 3px 3px rgb(68, 68, 68);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 5vw;
+}
+
+.footercontainer__text {
+    padding: 1.5vw 0vw 0vw 0vw;
+    transform: translateX(4vw);
+}
+
+.footercontainer__brieflink {
+    margin: 1.5vw 0vw 0vw 1vw;
+    font-size: 0.8rem;
+}
+
+.footercontainer__githublink {
+    display: flex;
+}
+
+.footercontainer__githublink__text {
+    margin: 1.5vw 1vw 0vw 0vw;
+}
+
+.githublogo {
+    height: 3vw;
+    align-items: flex-end;
+    margin: 1vw 2vw 1vw 0vw;
+
+}

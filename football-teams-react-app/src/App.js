@@ -9,20 +9,24 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Players from "./containers/Players";
 import TeamRoster from "./containers/TeamRoster";
+import Footer from "./components/Footer";
 
 
 const App = () => (
   <Router>
-    <React.Fragment>
+    <React.Fragment className="main-body">
       <Nav/>
       <Route exact path="/">
-        <Header>Players</Header>
+        <Header
+          children={ "Football Team Selector" }
+          subheader={ "Add players to your roster and generate two equally balanced teams" }
+        />
         <Players/>
       </Route>
       <Route path="/teams">
-        <Header>Teams</Header>
         <TeamRoster/>
       </Route>
+      <Footer/>
     </React.Fragment>
   </Router>
 

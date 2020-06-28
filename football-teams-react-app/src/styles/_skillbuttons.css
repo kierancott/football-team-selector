@@ -1,0 +1,43 @@
+.skill__label {
+    margin-right: 5vw;
+}
+
+.skillselect__label {
+    width: 50px;
+    height: 50px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transform: translateX(-15px);
+    padding-top: 5px;
+    transform: translateX(-3vw);
+    text-shadow: 2px 2px rgb(133, 133, 133);
+}
+
+.skillselect__group {
+    display: inline-block;
+    vertical-align: middle;
+    height: 2.5rem;
+    margin: 1vw;
+}
+
+#skillone {
+    background-color: darkred;
+}
+
+#skilltwo {
+    background-color: orangered
+}
+
+#skillthree {
+    background-color:orange
+}
+
+#skillfour {
+    background-color:lightgreen
+}
+
+#skillfive {
+    background-color:green
+}
