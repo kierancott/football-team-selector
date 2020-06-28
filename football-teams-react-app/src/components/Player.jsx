@@ -13,11 +13,17 @@ class Player extends Component {
       changeable: false
     }
 
+
+
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleName = this.handleName.bind(this);
-    this.handleSkill = this.handleSkill.bind(this);
+    this.handleUpdateSkill = this.handleUpdateSkill.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.onLoad();
   }
 
   handleDelete() {
@@ -41,7 +47,9 @@ class Player extends Component {
 
   }
 
-  handleSkill(e) {
+  handleUpdateSkill(e) {
+
+    e.preventDefault();
 
     let skill = +e.target.value;
 
@@ -86,11 +94,11 @@ class Player extends Component {
                 </Form.Group>
                 <Form.Group controlId="updateSkill" className="updateskill">
                   <p>Skill:</p>
-                    <button onClick={ (e) => this.handleSkill(e) } value="1" style={{ background: "darkred" }}>1</button>
-                    <button onClick={ (e) => this.handleSkill(e) } value="2" style={{ background: "darkorange" }}>2</button>
-                    <button onClick={ (e) => this.handleSkill(e) } value="3" style={{ background: "orange" }}>3</button>
-                    <button onClick={ (e) => this.handleSkill(e) } value="4" style={{ background: "lightgreen" }}>4</button>
-                    <button onClick={ (e) => this.handleSkill(e) } value="5" style={{ background: "green" }}>5</button>
+                    <button onClick={ (e) => this.handleUpdateSkill(e) } value="1" style={{ background: "darkred" }}>1</button>
+                    <button onClick={ (e) => this.handleUpdateSkill(e) } value="2" style={{ background: "darkorange" }}>2</button>
+                    <button onClick={ (e) => this.handleUpdateSkill(e) } value="3" style={{ background: "orange" }}>3</button>
+                    <button onClick={ (e) => this.handleUpdateSkill(e) } value="4" style={{ background: "lightgreen" }}>4</button>
+                    <button onClick={ (e) => this.handleUpdateSkill(e) } value="5" style={{ background: "green" }}>5</button>
                 </Form.Group>
                 <button className="playercard__update" type="submit">Update</button>
               </Form>
