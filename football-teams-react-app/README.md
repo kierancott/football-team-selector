@@ -1,3 +1,44 @@
+# Technical Challenge: Football Team Selector
+## Front-end Architecture - React Redux
+
+### Getting Started:
+
+1. Clone the repository to your local machine using the URL in the Repo
+```bash
+git clone {url} {foldername}
+```
+2. Install neccessary packages using npm
+```bash
+npm install
+```
+3. Initialise a local development server
+```bash
+npm start
+```
+
+### API
+- The front end of the repository is configured to query the Laravel API, [hosted on Heroku here](https://tranquil-beyond-86261.herokuapp.com/). For development purposes, a Vagrantfile exists to allow development locally using homestead.
+- Full information on using the API can be found [here](https://github.com/kierancott/football-team-selector/tree/master/football-teams-api#team-selector-api).
+  
+#### development/testing endpoint
+(http://homestead.test/api/)
+
+#### production endpoint
+(https://tranquil-beyond-86261.herokuapp.com/api/)
+
+
+## Deploying
+```bash
+npm run deploy
+```
+
+- The above command uses the gh-pages package to deploy to gitHub pages. Script lives in package.json and runs:
+```
+react-scripts build
+gh-pages -d build
+```
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
