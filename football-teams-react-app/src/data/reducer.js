@@ -24,32 +24,46 @@ const teamSelect = (state, { players }) => {
   };
 };
 
+// Update the name and skill of an individual player
 const editPlayer = (state, { player }) => {
 
+  // fetch all players, store as items in assoc array
   let playerArray = state.players.slice()
 
+  // map over items, and for the matching player ID,
+  // replace the item with the new player
   let newPlayers = playerArray.map(item => {
     if (item.id === player.id) {
       return player
     } else {
+      // else leave unchanged
       return item
     }
   })
 
   return {
+    // copy state using spread operator
     ...state,
+    // replace players with the newPlayers array
+    // containing the updated player
     players: newPlayers
   };
 };
 
 const removePlayer = (state, { id }) => {
 
+  // fetch all players, store as items in assoc array
   let playerArray = state.players.slice()
 
+  // filter all players playerArray into a new array, EXCEPT for
+  // the player whose ID matches that which is to be removed
   let newPlayers = playerArray.filter(item => item.id !== id)
 
   return {
+    // copy state with spread operator
     ...state,
+    // replace players with newPlayers array, containing all previous
+    // players except for the player whose ID matched that to be removed
     players: newPlayers
   };
 };

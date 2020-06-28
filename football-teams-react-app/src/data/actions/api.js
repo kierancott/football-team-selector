@@ -2,6 +2,7 @@ import axios from "../axios";
 
 import { setPlayers, addPlayer, resetPlayers, teamSelect, editPlayer, removePlayer } from "./state";
 
+// fetch all players from the database
 export const getPlayers = () => dispatch => {
   axios.get("/players").then(({ data }) => {
     const players = data;
@@ -9,6 +10,7 @@ export const getPlayers = () => dispatch => {
   });
 };
 
+// add a player to the database
 export const postPlayer = (player_name, skill) => dispatch => {
   axios.post("/players", {
     player_name: player_name,
@@ -19,12 +21,14 @@ export const postPlayer = (player_name, skill) => dispatch => {
   });
 };
 
+// delete all players from the database
 export const deletePlayers = () => dispatch => {
   axios.delete("/players").then(() => {
     dispatch(resetPlayers());
   });
 };
 
+// assign teams to players in the database
 export const assignTeam = () => dispatch => {
   axios.get("/teams").then(({ data }) => {
     const players = data
@@ -32,6 +36,8 @@ export const assignTeam = () => dispatch => {
   });
 };
 
+// update the name and skill of a specific player in the database
+// represented by a specific ID
 export const patchPlayer = (id, player_name, skill) => dispatch => {
   axios.patch(`/players/${id}`, {
     player_name: player_name,
@@ -42,6 +48,7 @@ export const patchPlayer = (id, player_name, skill) => dispatch => {
   });
 };
 
+// Delete a specific player in the database represented by a specific ID
 export const deletePlayer = (id) => dispatch => {
   axios.delete(`/players/${id}`).then(() => {
     dispatch(removePlayer(id));
