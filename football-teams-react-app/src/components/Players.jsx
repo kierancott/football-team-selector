@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { HashRouter as Router, Link } from "react-router-dom";
 
 import CardDeck from "react-bootstrap/CardDeck";
-import Player from "../components/Player";
+import Player from "../containers/Player";
 
 
 class Players extends Component {
@@ -119,7 +119,7 @@ class Players extends Component {
                     <div key={ player.id }>
                       <Player player={ player }/>
                     </div>
-                    ))}
+                    ))} 
                 </CardDeck>
             </div>
                 :

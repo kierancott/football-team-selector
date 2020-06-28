@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ d<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <h3><a href="https://github.com/kierancott/football-team-selector/football-teams-api">Get started with this API</a></h3>
+                    <h3><a href="https://github.com/kierancott/football-team-selector/tree/master/football-teams-api#team-selector-api">Get started with this API</a></h3>
                     <h5>This file: ~/resources/views/welcome.blade.php</h5>
                 </div>
             </div>

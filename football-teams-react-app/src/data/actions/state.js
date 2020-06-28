@@ -24,3 +24,17 @@ export const teamSelect = (players) => {
     players: players,
   };
 };
+
+export const editPlayer = (player) => {
+  return {
+    type: "editPlayer",
+    player: player,
+  };
+};
+
+export const removePlayer = (id) => {
+  return {
+    type: "removePlayer",
+    id: id
+  };
+};

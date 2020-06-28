@@ -1,5 +1,4 @@
 import initial from "./initial";
-import { assignTeam } from "./actions/api";
 
 // spread operator copies players array from initial.js to the players object from the database
 const setPlayers = (state, { players }) => {
@@ -21,7 +20,37 @@ const addPlayer = (state, { player }) => {
 const teamSelect = (state, { players }) => {
   return {
     ...state,
-    players: players,
+    players: players
+  };
+};
+
+const editPlayer = (state, { player }) => {
+
+  let playerArray = state.players.slice()
+
+  let newPlayers = playerArray.map(item => {
+    if (item.id === player.id) {
+      return player
+    } else {
+      return item
+    }
+  })
+
+  return {
+    ...state,
+    players: newPlayers
+  };
+};
+
+const removePlayer = (state, { id }) => {
+
+  let playerArray = state.players.slice()
+
+  let newPlayers = playerArray.filter(item => item.id !== id)
+
+  return {
+    ...state,
+    players: newPlayers
   };
 };
 
@@ -32,6 +61,8 @@ const reducer = (state, action) => {
     case "addPlayer": return addPlayer(state, action);
     case "resetPlayers": return initial;
     case "teamSelect": return teamSelect(state, action);
+    case "editPlayer": return editPlayer(state, action);
+    case "removePlayer": return removePlayer(state, action);
     default: return state;
   }
 };
